@@ -13,7 +13,7 @@
         <activity android:name=".MainActivity2" />
         <activity android:name=".coroutine.AsyncAwaitActivity" />
         <activity
-            android:name=".coroutine.CoroutineActivity"
+            android:name=".coroutine.MainActivityCoroutine"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.MyApplication.NoActionBar">

@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/font/roboto_bold.xml" value="0.2676923076923077" />
         <entry key="app/src/main/res/layout/activity_coroutine.xml" value="0.11752786220871327" />
+        <entry key="app/src/main/res/layout/activity_lifecycle.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main_2.xml" value="0.31929347826086957" />
         <entry key="app/src/main/res/layout/activity_main_3.xml" value="0.1802536231884058" />
@@ -18,6 +19,7 @@
         <entry key="app/src/main/res/layout/fragment_home2.xml" value="0.1802536231884058" />
         <entry key="app/src/main/res/layout/fragment_home3.xml" value="0.2132725430597771" />
         <entry key="app/src/main/res/layout/fragment_kokhou.xml" value="0.1802536231884058" />
+        <entry key="app/src/main/res/layout/fragment_lifecycle.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.1802536231884058" />
         <entry key="app/src/main/res/layout/fragment_terms.xml" value="0.1947463768115942" />
         <entry key="app/src/main/res/layout/list_item.xml" value="0.1947463768115942" />
