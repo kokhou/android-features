@@ -1,5 +1,6 @@
 package com.example.myapplication.db
 
+import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -33,19 +34,30 @@ class SubscriberViewModel(private val repository: SubscriberRepository) : ViewMo
     }
 
     fun saveOrUpdate() {
-        if (isUpdateOrDelete) {
-            subscriberToUpdateOrDelete.name = inputName.value!!
-            subscriberToUpdateOrDelete.email = inputEmail.value!!
-            update(subscriberToUpdateOrDelete)
+
+        if (inputName.value.isNullOrBlank()) {
+            statusMessage.value = Event("Please enter subscriber's name")
+        } else if (inputEmail.value.isNullOrBlank()) {
+            statusMessage.value = Event("Please enter subscriber's email")
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(inputEmail.value!!).matches()) {
+            statusMessage.value = Event("Please enter a correct email address")
         } else {
-            val name = inputName.value!!
-            val email = inputEmail.value!!
+            if (isUpdateOrDelete) {
+                subscriberToUpdateOrDelete.name = inputName.value!!
+                subscriberToUpdateOrDelete.email = inputEmail.value!!
+                update(subscriberToUpdateOrDelete)
+            } else {
+                val name = inputName.value!!
+                val email = inputEmail.value!!
 
-            insert(Subscriber(0, name, email))
+                insert(Subscriber(0, name, email))
 
-            inputName.value = ""
-            inputEmail.value = ""
+                inputName.value = ""
+                inputEmail.value = ""
+            }
         }
+
+
     }
 
     fun clearAllOrDelete() {
@@ -95,7 +107,7 @@ class SubscriberViewModel(private val repository: SubscriberRepository) : ViewMo
 
     fun clearAll() = viewModelScope.launch {
         val deleteAllId = repository.deleteAll()
-        if(deleteAllId > -1){
+        if (deleteAllId > -1) {
             statusMessage.value = Event("Subscriber Delete All Successfully $deleteAllId")
         } else {
             statusMessage.value = Event("Error Occurred")
