@@ -18,6 +18,7 @@ class DbActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDbBinding
     private lateinit var viewModel: SubscriberViewModel
+    private lateinit var adapter: DbRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,14 +44,19 @@ class DbActivity : AppCompatActivity() {
 
     private fun initRecyclerView() {
         binding.subscriberRecyclerView.layoutManager = LinearLayoutManager(this)
+        adapter = DbRecyclerViewAdapter { selectedItem -> listItemClicked(selectedItem) }
+        binding.subscriberRecyclerView.adapter = adapter
+
         displaySubscriberList()
     }
 
     private fun displaySubscriberList() {
         viewModel.subscribers.observe(this) {
             Log.i("Tag", it.toString())
-            binding.subscriberRecyclerView.adapter =
-                DbRecyclerViewAdapter(it) { selectedItem -> listItemClicked(selectedItem) }
+            adapter.apply {
+                setList(it)
+                notifyDataSetChanged()
+            }
         }
     }
 

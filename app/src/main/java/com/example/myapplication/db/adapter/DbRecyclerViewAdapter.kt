@@ -9,10 +9,12 @@ import com.example.myapplication.databinding.ListItemDbBinding
 import com.example.myapplication.db.db.Subscriber
 
 class DbRecyclerViewAdapter(
-    private val subscribers: List<Subscriber>,
     private val clickListener: (Subscriber) -> Unit
 ) :
     RecyclerView.Adapter<DbRecyclerViewHolder>() {
+
+    private val subscribers = ArrayList<Subscriber>()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DbRecyclerViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
 
@@ -32,6 +34,11 @@ class DbRecyclerViewAdapter(
 
     override fun getItemCount(): Int {
         return subscribers.size
+    }
+
+    fun setList(newSubscribers: List<Subscriber>) {
+        subscribers.clear()
+        subscribers.addAll(newSubscribers)
     }
 
 }
