@@ -6,6 +6,7 @@
         <entry key="../../../../../.gradle/caches/transforms-3/cdd8388d8eb0bb4101b550377669da59/transformed/appcompat-1.4.1/res/drawable/abc_btn_radio_material.xml" value="0.194" />
         <entry key="app/src/main/res/font/roboto_bold.xml" value="0.2676923076923077" />
         <entry key="app/src/main/res/layout/activity_coroutine.xml" value="0.11752786220871327" />
+        <entry key="app/src/main/res/layout/activity_dagger.xml" value="0.16983695652173914" />
         <entry key="app/src/main/res/layout/activity_db.xml" value="0.20742753623188406" />
         <entry key="app/src/main/res/layout/activity_lifecycle.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
