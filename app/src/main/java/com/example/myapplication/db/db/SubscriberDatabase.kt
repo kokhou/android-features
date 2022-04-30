@@ -7,8 +7,7 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [Subscriber::class], version = 1)
 abstract class SubscriberDatabase : RoomDatabase() {
-
-    abstract val subscriberDao: SubscriberDAO
+    abstract val subscriberDAO: SubscriberDAO
 
     companion object {
         @Volatile
@@ -28,3 +27,4 @@ abstract class SubscriberDatabase : RoomDatabase() {
         }
     }
 }
+
